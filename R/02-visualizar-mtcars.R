@@ -4,6 +4,7 @@ library("ggplot2")
 
 ## Hello world
 print("Soy Phabel")
+print("Hola")
 
 ## Directorios
 dir_plots <- here::here("figuras")
