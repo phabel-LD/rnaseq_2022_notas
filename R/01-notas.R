@@ -1,1 +1,1 @@
-## Archivo para notas generales de clase.
+# Archivo para notas generales de clase.
