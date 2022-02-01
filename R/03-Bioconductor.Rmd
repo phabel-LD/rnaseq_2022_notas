@@ -12,6 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # Bioconductor
 
 Este Rmd contiene los resultados del ejercicio: *Analizar paqueterías de Bioconductor 3.14*, trabajo en equipo:
+
 * Luz Guevara
 * Diego Heldrish
 * Phabel López
