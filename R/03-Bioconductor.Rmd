@@ -1,0 +1,48 @@
+---
+title: "03-Bioconductor"
+author: Phabel López
+date: 01/Feb/2022
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Bioconductor
+
+Este Rmd contiene los resultados del ejercicio: *Analizar paqueterías de Bioconductor 3.14*, trabajo en equipo:
+Luz Guevara
+Diego Heldrish
+Phabel López
+
+El drive original se encuentra en: <https://docs.google.com/document/d/170TqhGVr0bawSuM2e0usv9k9iE2L-cS6ER-lSB1ZJb8/edit?usp=sharing>
+
+Las paqueterías a analizar fueron:
+*DOSE <https://www.bioconductor.org/packages/release/bioc/html/DOSE.html>
+*synapsis <http://bioconductor.org/packages/release/bioc/html/synapsis.html>
+
+## DOSE
+<https://www.bioconductor.org/packages/release/bioc/html/DOSE.html>
+
+* *Autor:* Guangchuang Yu [aut, cre], Li-Gen Wang [ctb], Vladislav Petyuk [ctb], Giovanni Dall'Olio [ctb], Erqiang Hu [ctb]
+* *Summary:* This package implements five methods proposed by Resnik, Schlicker, Jiang, Lin and Wang respectively for measuring semantic similarities among DO terms and gene products. Enrichment analyses including hypergeometric model and gene set enrichment analysis are also implemented for discovering disease associations of high-throughput biological data.
+* *Plataformas:* Incluye todas. Source Package, Windows Binary, macOS 10.13 (High Sierra) & Source Repository <https://git.bioconductor.org/packages/DOSE>
+* *Errores & Preguntas:* Este es un paquete que lleva 10 años en Bioc y fue analizado como referente, pues su rango es 39/2083 y todas sus preguntas han sido respondidas con un support 0/0.
+* *Documentación:* Se puede apreciar que la documentación es basta; constando de un ebook entero como *vignete* que le dedica su propio apartado a cada implementación del paquete. Contiene imágenes, descripciones que se ven detalladas y un orden adecuado. <https://yulab-smu.top/biomedical-knowledge-mining-book/index.html>
+* *Análisis:* Se considera que la implementación de análisis de enriquecimiento podría servir en la caracterización y clasificación etiológica de las enfermedades.
+* *Cita:* G Yu, LG Wang, GR Yan, QY He. DOSE: an R/Bioconductor package for Disease Ontology Semantic and Enrichment analysis. Bioinformatics 2015, 31(4):608-609. <http://dx.doi.org/10.1093/bioinformatics/btu684>.
+
+
+## synapsis
+<http://bioconductor.org/packages/release/bioc/html/synapsis.html>
+
+* *Autor:* Lucy McNeill [aut, cre, cph], Wayne Crismani [rev, ctb]
+* *Summary:* Synapsis is a Bioconductor software package for automated (unbiased and reproducible) analysis of meiotic immunofluorescence datasets. The primary functions of the software can i) identify cells in meiotic prophase that are labelled by a synaptonemal complex axis or central element protein, ii) isolate individual synaptonemal complexes and measure their physical length, iii) quantify foci and co-localise them with synaptonemal complexes, iv) measure interference between synaptonemal complex-associated foci. The software has applications that extend to multiple species and to the analysis of other proteins that label meiotic prophase chromosomes. The software converts meiotic immunofluorescence images into R data frames that are compatible with machine learning methods. Given a set of microscopy images of meiotic spread slides, synapsis crops images around individual single cells, counts colocalising foci on strands on a per cell basis, and measures the distance between foci on any given strand.
+* *Plataformas:* Incluye todas. Source Package, Windows Binary, macOS 10.13 (High Sierra) & Source Repository <https://git.bioconductor.org/packages/synapsi>
+* *Errores & Preguntas:* Este es un paquete nuevo que de la versión Bioc 3.14 y lleva <6 meses en distribución, por lo que aún no se han hecho preguntas ni reportdo errores. Su rango es 2050/2083 y posee solo 25 dependencias.
+* *Documentación:* Se aprecia una enorme diferencia entre la documentación con DOSE; en este caso es deficiente y poco descriptiva. Únicamente muestra imágenes con código pero pocos comentarios explicando los mecanismos y razonamiento. Posiblemente dicha diferencia abismal se deba a la diferencia de tiempo en distribución; seguramente el caso de *synapsis* mejorará con el tiempo. <http://bioconductor.org/packages/release/bioc/vignettes/synapsis/inst/doc/synapsis_tutorial.html>
+* *Análisis:* Se considera que esta paquetería sería útil para analizar resultados experimentales de biología célular y del desarrollo versados en inmunoflorescencia y análisis de etapas del ciclo celular.
+* *Cita:* Aún no aplica.
+
+
