@@ -23,7 +23,8 @@ actual pero prona a errores e incompatibilidad.
 
 # 2) Objetos en Bioconductor
 
-* SummarizedExperiment (software): Almacena data de experimentos. Condensación
+* SummarizedExperiment [se] (software) <http://bioconductor.org/packages/release/bioc/html/SummarizedExperiment.html>:
+Almacena data de experimentos. Condensación
 de más de una tabla por objeto interrelacionadas.
   -> rowRanges: Cada renglon es un gen.(m) Deriva del objeto DRanges.
   -> colData: Cada columna es una muestra. (n) Cada columna es un atributo de muestra.
@@ -32,7 +33,8 @@ de más de una tabla por objeto interrelacionadas.
 
 Se puede accesar a subconjuntos de tablas relacionadas.
 
-* GenomicRanges [GRanges] (software): Analiza HT seq data, para almacenar data sobre
+* GenomicRanges [GRanges] (software) http://bioconductor.org/packages/release/bioc/html/GenomicRanges.html:
+Analiza HT seq data, para almacenar data sobre
 alineamientos e intervalos genómicos. Se pueden hacer comparaciones con seq referencia.
 Indica los intervalos cromosómicos. IRanges(Interval Ranges), Rle (Re Length Ext). Partes:
   -> seqname
@@ -40,5 +42,28 @@ Indica los intervalos cromosómicos. IRanges(Interval Ranges), Rle (Re Length Ex
   -> strand
 Se pueden crear nuevas variables y accesarles con rowData(se)
 
-* rtracklayer: interactua con buscadores genómicos y manipular su anotación para generar data.
+* rtracklayer http://bioconductor.org/packages/release/bioc/html/rtracklayer.html:
+Interactua con buscadores genómicos y manipular su anotación para generar data.
+Es capaz de manipula la informacion en varios formatos (GFF, BED, WIG)
 
+*iSEE (Interactive SummarizedExperiment Explorer) <http://bioconductor.org/packages/release/bioc/html/iSEE.html>:
+Crea una interfaz gráfica con un objeto "se", a través de la cual un usuario puede interactuar
+más libremente con la información contenida en row, cols & metadata. Es una herramienta muy
+útil para generar, analizar y descargar gráficos y tablas; siendo posible aplicar varios
+análisis estadísticos como PCA y ver relaciones de expresión diferencial entre genes.
+
+# 3) RNA-seq data
+
+* SingleCellExperiment <http://bioconductor.org/packages/release/bioc/html/SingleCellExperiment.html>:
+  Es un objeto especializado en almacenar data de experimentos single cell; se puede recuperar informacion,
+reducir dimensionalidad y acceder a metadata.
+
+* recount3 <http://bioconductor.org/packages/release/bioc/html/recount3.html>:
+Se implementa también el paquete recount3 para acceder a datos uniformemente procesados de RNA-seq de humano y ratón.
+
+# 3) Modelos estadísticos
+
+* ExploreModelMatrix <http://bioconductor.org/packages/release/bioc/html/ExploreModelMatrix.html>:
+Explora los resultados para la creación de modelos de regresiones lineales y predicciones. Sú lógica se basa
+en determinar diferencias entre los datos para hallar expresión diferencial.
+Lanza la app shiny para visualizar la información más fácilmente.

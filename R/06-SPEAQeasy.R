@@ -1,15 +1,21 @@
 # Procesar datos crudos (FASTQ) con SPEQeasy & recount3
+<http://research.libd.org/SPEAQeasy/>
 
-Para analizar inputs FASTQs y poder pasar a alineamientos y poder
-llegar a SummarizedExperiment.
+#Propiamente significa Scalable RNA-seq Pipeline for Expression Analysis and Quantification.
 
-Proyecto recount3 con muestras de RNA-seq de humano & ratón,
-Para poder analizar los datos sin importar quien tiene acceso
-a high performance computing (HPC) (clústers para procesar datos).
+#Sirve para analizar inputs FASTQs y poder pasar a alineamientos y poder
+#llegar a crear un SummarizedExperiment. Su uso contribuye mucho a la reproducibilidad
+#de los experimentos.
 
-Una posibilidad es determinar el nivel total de expresión de un gen
-con alternative splicing con exon & gene coverage experiments.
+#Proyecto recount3 con muestras de RNA-seq de humano & ratón,
+#Para poder analizar los datos sin importar quien tiene acceso
+#a high performance computing (HPC) (clústers para procesar datos).
 
+#Una posibilidad es determinar el nivel total de expresión de un gen
+#con alternative splicing con exon & gene coverage experiments.
+
+# Se implementa también el paquete recount3 para acceder a datos
+# uniformemente procesados de RNA-seq de humano y ratón.
 
 ## Load recount3 R package
 library("recount3")
