@@ -1,3 +1,5 @@
+# SummarizedExperiment (se)
+
 ## Lets build our first SummarizedExperiment object
 library("SummarizedExperiment")
 ## ?SummarizedExperiment

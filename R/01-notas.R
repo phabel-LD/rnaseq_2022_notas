@@ -41,3 +41,4 @@ Indica los intervalos cromosómicos. IRanges(Interval Ranges), Rle (Re Length Ex
 Se pueden crear nuevas variables y accesarles con rowData(se)
 
 * rtracklayer: interactua con buscadores genómicos y manipular su anotación para generar data.
+
