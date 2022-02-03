@@ -67,3 +67,14 @@ Se implementa también el paquete recount3 para acceder a datos uniformemente pr
 Explora los resultados para la creación de modelos de regresiones lineales y predicciones. Sú lógica se basa
 en determinar diferencias entre los datos para hallar expresión diferencial.
 Lanza la app shiny para visualizar la información más fácilmente.
+
+* Datos de SRP045638
+  1) Importar con recount3
+  2) Limpiar data manualmente
+  3) Transform -> Visulizacion -> Modelo
+  4) Comunicar con GitHub.
+
+RNA integrity Number (RIN): número que indica la calidad experimental de la muestra.
+
+En la normalización se asume que la mayoría de los genes no están diferencialmente expresados.
+El factor de normalización se estima con métodos estadísticos con dicha asunción como heurística.
