@@ -78,3 +78,13 @@ RNA integrity Number (RIN): número que indica la calidad experimental de la mue
 
 En la normalización se asume que la mayoría de los genes no están diferencialmente expresados.
 El factor de normalización se estima con métodos estadísticos con dicha asunción como heurística.
+
+Para hacer los análisis de expresión diferencial, se crea el modelo estadístico y luego se determinan
+  coeficientes bajo la distribución binomial negativa con limma. Da valores...
+    1) logFC: > 0 indica mayor expresión.
+    2) AveExpr: expresión promedio
+    3) t: < 0 indica mayor expresión
+    4) P.Value: < 0.05 indica expresión diferencial. Pero puede tener un Multiple Testing Problem.
+          Requiere un ajuste de FamilyWiseErroRate o FalseDiscoveryRate (FDR es el más usado).
+    5) ad.P.Val: < 0.05 indica expresión diferencial.
+

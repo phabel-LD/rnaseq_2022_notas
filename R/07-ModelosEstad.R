@@ -186,6 +186,9 @@ dge <- DGEList(
 )
 dge <- calcNormFactors(dge)
 
+################################################
+# 4) Expresión Diferencial
+################################################
 
 ## ----explore_gene_prop_by_age----------------------------------------------------------------------------
 library("ggplot2")
@@ -202,18 +205,25 @@ mod <- model.matrix(~ prenatal + sra_attribute.RIN + sra_attribute.sex + assigne
 )
 colnames(mod)
 
-
+## Ya se tiene el modelo estadístico, ahora se realiza el análisis de
+## expresión diferencial. Limma usa la distribución binomial negativa.
+## Para determinar sus coeficientes, se encuentran máximos (relativos) de forma iterativa.
 ## ----run_limma-------------------------------------------------------------------------------------------
 library("limma")
-vGene <- voom(dge, mod, plot = TRUE)
+vGene <- voom(dge, mod, plot = TRUE) # Se ve la relación entre la media de expresión y la varianza.
 
+# Mejorar la estimación
+# Para calcular p-values.
 eb_results <- eBayes(lmFit(vGene))
 
+# Resume info.
+# Da t-values (t-Student) para el coeficiente "prenatalprenatal"
+# Se le puede dar más de una columna pero da F-value (Fischer's) > 0.
 de_results <- topTable(
   eb_results,
-  coef = 2,
-  number = nrow(rse_gene_SRP045638),
-  sort.by = "none"
+  coef = 2, # Selecciona el segundo coeficiente correspondiente a "prenatalprenatal"
+  number = nrow(rse_gene_SRP045638), # Ajusta el numero de resultados de los genes a todos los renglones en el dataset
+  sort.by = "none" # Sin orden para mantener compatibilidad y orden original.
 )
 dim(de_results)
 head(de_results)
@@ -221,21 +231,24 @@ head(de_results)
 ## Genes diferencialmente expresados entre pre y post natal con FDR < 5%
 table(de_results$adj.P.Val < 0.05)
 
-## Visualicemos los resultados estadísticos
+## Visualicemos los resultados estadísticos. Relacion logFC y AveLogExpression
 plotMA(eb_results, coef = 2)
 
+# Relacion entre logFC y P.Value. con P.Value -> 0 indica mayor Expresion diferencial.
+# Le pedimos los 3 genes con mayor expresion diferencial.
 volcanoplot(eb_results, coef = 2, highlight = 3, names = de_results$gene_name)
 de_results[de_results$gene_name %in% c("ZSCAN2", "VASH2", "KIAA0922"), ]
 
 
 ## ----pheatmap--------------------------------------------------------------------------------------------
-## Extraer valores de los genes de interés
+## Extraer valores de los genes de interés, los 50 con mayor señal de expresión diferencial.
 exprs_heatmap <- vGene$E[rank(de_results$adj.P.Val) <= 50, ]
 
 ## Creemos una tabla con información de las muestras
 ## y con nombres de columnas más amigables
 df <- as.data.frame(colData(rse_gene_SRP045638)[, c("prenatal", "sra_attribute.RIN", "sra_attribute.sex")])
 colnames(df) <- c("AgeGroup", "RIN", "Sex")
+head(df)
 
 ## Hagamos un heatmap
 library("pheatmap")
@@ -270,6 +283,7 @@ col.sex <- as.character(col.sex)
 plotMDS(vGene$E, labels = df$Sex, col = col.sex)
 
 
+### Ejercicio 1: Agreguen los nombres de los genes a nuestro pheatmap.
 ## ----respuesta, out.height="1100px"----------------------------------------------------------------------
 ## Tenemos que usar gene_id y gene_name
 rowRanges(rse_gene_SRP045638)
